@@ -1,25 +1,21 @@
-#include <stdbool.h>
-#include <ctype.h>
-#include <string.h>
-
 bool isPalindrome(char* s) {
-    int left = 0;
-    int right = strlen(s) - 1;
+    int l = 0;
+    int r= strlen(s) - 1;
 
-    while (left < right) {
-        while (left < right && !isalnum((unsigned char)s[left])) {
-            left++;
+    while (l<r) {
+        while (l<r&& !isalnum((unsigned char)s[l])) {
+            l++;
         }
-        while (left < right && !isalnum((unsigned char)s[right])) {
-            right--;
+        while (l<r && !isalnum((unsigned char)s[r])) {
+            r--;
         }
 
-        if (tolower((unsigned char)s[left]) != tolower((unsigned char)s[right])) {
+        if (tolower((unsigned char)s[l]) != tolower((unsigned char)s[r])) {
             return false;
         }
 
-        left++;
-        right--;
+        l++;
+        r--;
     }
 
     return true;
